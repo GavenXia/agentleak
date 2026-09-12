@@ -1,0 +1,14 @@
+---
+description: Guard against pasting secrets into AI chats; audit sessions with agentleak
+globs:
+alwaysApply: false
+---
+
+# agentleak — secret hygiene
+
+- Never ask the user to paste API keys, SSH keys or tokens into the chat. If you
+  need a credential, tell the user to put it in `.env` or the agent's keychain.
+- If you notice a secret in the conversation, warn the user immediately and
+  suggest rotating it.
+- To audit local agent sessions for leaked secrets, run: `npx agentleak scan`
+  (offline, masked output; `npx agentleak scan --json` for machine-readable).

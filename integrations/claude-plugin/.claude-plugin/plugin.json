@@ -1,0 +1,10 @@
+{
+  "name": "agentleak",
+  "version": "0.1.0",
+  "description": "Scan Claude Code sessions for leaked secrets (API keys, SSH keys, tokens) and block prompts containing them.",
+  "author": {
+    "name": "agentleak contributors"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/agentleak/agentleak"
+}

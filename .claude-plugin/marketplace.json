@@ -1,0 +1,11 @@
+{
+  "name": "agentleak",
+  "description": "agentleak plugin marketplace — secret scanning for Claude Code sessions",
+  "plugins": [
+    {
+      "name": "agentleak",
+      "source": "./integrations/claude-plugin",
+      "description": "Scan your Claude Code sessions for leaked API keys and get a rotation checklist; guard prompts before they are sent."
+    }
+  ]
+}
