@@ -9,15 +9,15 @@
   },
   "funding": {
     "type": "github",
-    "url": "https://github.com/sponsors/agentleak"
+    "url": "https://github.com/sponsors/GavenXia"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/agentleak/agentleak.git"
+    "url": "git+https://github.com/GavenXia/agentleak.git"
   },
-  "homepage": "https://github.com/agentleak/agentleak#readme",
+  "homepage": "https://github.com/GavenXia/agentleak#readme",
   "bugs": {
-    "url": "https://github.com/agentleak/agentleak/issues"
+    "url": "https://github.com/GavenXia/agentleak/issues"
   },
   "publishConfig": {
     "access": "public"

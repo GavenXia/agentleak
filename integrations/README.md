@@ -6,7 +6,7 @@ offline CLI — no component here makes network requests.
 ## Claude Code plugin (marketplace)
 
 ```bash
-claude plugin marketplace add agentleak/agentleak
+claude plugin marketplace add GavenXia/agentleak
 claude plugin install agentleak@agentleak
 ```
 

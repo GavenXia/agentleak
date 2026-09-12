@@ -181,7 +181,7 @@ keywords = ["private key"]
 severity = "critical"
 [rules.provider]
 name = "SSH/PGP"
-revokeUrl = "https://github.com/agentleak/agentleak/wiki/Rotating-SSH-keys"
+revokeUrl = "https://github.com/GavenXia/agentleak/wiki/Rotating-SSH-keys"
 
 [[rules]]
 id = "jwt"

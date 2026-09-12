@@ -17,7 +17,7 @@ purpose — read the boundaries before opening a PR.
 ## Development setup
 
 ```bash
-git clone https://github.com/agentleak/agentleak
+git clone https://github.com/GavenXia/agentleak
 cd agentleak
 npm install
 npm test          # vitest

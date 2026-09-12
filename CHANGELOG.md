@@ -29,5 +29,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI (macOS/Linux/Windows × Node 20/22/24), commitlint + husky, release
   workflow with provenance.
 
-[Unreleased]: https://github.com/agentleak/agentleak/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/agentleak/agentleak/releases/tag/v0.1.0
+[Unreleased]: https://github.com/GavenXia/agentleak/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/GavenXia/agentleak/releases/tag/v0.1.0

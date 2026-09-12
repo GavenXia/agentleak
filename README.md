@@ -4,7 +4,7 @@
 
 **Find the secrets you already leaked into AI chat sessions — before someone else does.**
 
-[![CI](https://github.com/agentleak/agentleak/actions/workflows/ci.yml/badge.svg)](https://github.com/agentleak/agentleak/actions/workflows/ci.yml)
+[![CI](https://github.com/GavenXia/agentleak/actions/workflows/ci.yml/badge.svg)](https://github.com/GavenXia/agentleak/actions/workflows/ci.yml)
 [![npm](https://img.shields.io/npm/v/agentleak)](https://www.npmjs.com/package/agentleak)
 [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![node](https://img.shields.io/badge/node-%E2%89%A520-339933)](package.json)
@@ -149,7 +149,7 @@ npm install -g agentleak
 
 ```bash
 # from the plugin marketplace (skill + UserPromptSubmit guard hook)
-claude plugin marketplace add agentleak/agentleak
+claude plugin marketplace add GavenXia/agentleak
 claude plugin install agentleak@agentleak
 ```
 
@@ -261,7 +261,7 @@ reporting — never paste real secrets into issues.
 
 ## ⭐ Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=agentleak/agentleak&type=Date)](https://star-history.com/#agentleak/agentleak&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=GavenXia/agentleak&type=Date)](https://star-history.com/#GavenXia/agentleak&Date)
 
 ## License
 
