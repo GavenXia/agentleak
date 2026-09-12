@@ -1,0 +1,4 @@
+{"timestamp":"2026-09-02T08:00:00.000Z","ordinal":0,"type":"session_meta","payload":{"id":"sess-1","cwd":"/home/dev/project"}}
+{"timestamp":"2026-09-02T08:00:01.000Z","ordinal":1,"type":"response_item","payload":{"type":"message","role":"user","content":[{"type":"input_text","text":"here is the key AKIAIOSFODNN7EXAMPLE use it wisely"}]}}
+{"timestamp":"2026-09-02T08:00:02.000Z","ordinal":2,"type":"response_item","payload":{"type":"message","role":"assistant","content":[{"type":"output_text","text":"Got it, I will use the key."}]}}
+{"timestamp":"2026-09-02T08:00:03.000Z","ordinal":3,"type":"event_msg","payload":{"type":"user_message","message":"raw event ignored"}}

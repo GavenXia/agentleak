@@ -1,0 +1,27 @@
+[
+  {
+    "title": "deploy help",
+    "create_time": 1756732800,
+    "mapping": {
+      "n0": {
+        "message": { "author": { "role": "system" }, "content": { "parts": ["You are ChatGPT"] } }
+      },
+      "n1": {
+        "message": {
+          "author": { "role": "user" },
+          "content": {
+            "parts": [
+              "hey can you deploy with this token ghp_16C7e42F292c6912E7710c53839122318D4ascz"
+            ]
+          }
+        }
+      },
+      "n2": {
+        "message": {
+          "author": { "role": "assistant" },
+          "content": { "parts": ["Sure, here is how…"] }
+        }
+      }
+    }
+  }
+]

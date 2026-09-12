@@ -1,0 +1,5 @@
+{"type":"user","timestamp":"2026-09-01T09:00:00.000Z","cwd":"/home/dev/project","message":{"role":"user","content":"hi, please help me deploy"}}
+{"type":"assistant","timestamp":"2026-09-01T09:00:05.000Z","message":{"role":"assistant","content":[{"type":"text","text":"I will help you with that"}]}}
+{"type":"user","timestamp":"2026-09-01T10:00:00.000Z","cwd":"/home/dev/project","message":{"role":"user","content":"use this key AKIAIOSFODNN7EXAMPLE for the deploy"}}
+{"type":"user","timestamp":"2026-09-01T11:00:00.000Z","cwd":"/home/dev/project","message":{"role":"user","content":[{"type":"text","text":"also set ANTHROPIC_API_KEY=sk-ant-api03-ExampleKey1234567890abcdEF"}]}}
+{"type":"queue-operation","timestamp":"2026-09-01T12:00:00.000Z","queue":[{"type":"user","message":{"role":"user","content":"ignored"}}]}
