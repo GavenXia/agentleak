@@ -48,7 +48,7 @@
     "prepare": "husky || true"
   },
   "lint-staged": {
-    "*.{ts,md,json,yml,toml}": [
+    "*.{ts,md,json,yml}": [
       "prettier --write"
     ],
     "*.ts": [
