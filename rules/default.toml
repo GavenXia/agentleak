@@ -1,0 +1,210 @@
+# agentleak default rules — gitleaks-compatible TOML (superset: severity, provider).
+# Format: [[rules]] with id, description, regex, optional keywords (prefilter),
+# optional minEntropy, and severity + provider rotation info (agentleak extension).
+
+# ---------------------------------------------------------------------------
+# Cloud providers
+# ---------------------------------------------------------------------------
+
+[[rules]]
+id = "aws-access-key"
+description = "AWS Access Key ID"
+regex = '\b(A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}\b'
+keywords = ["akia", "a3t", "agpa", "aida", "aroa", "aipa", "anpa", "anva", "asia"]
+severity = "critical"
+[rules.provider]
+name = "AWS IAM"
+revokeUrl = "https://console.aws.amazon.com/iam/"
+
+[[rules]]
+id = "aws-secret-key"
+description = "AWS Secret Access Key assignment"
+regex = "(?i)aws.{0,30}?[\"'][A-Za-z0-9/+=]{40}[\"']"
+keywords = ["aws"]
+severity = "critical"
+[rules.provider]
+name = "AWS IAM"
+revokeUrl = "https://console.aws.amazon.com/iam/"
+
+[[rules]]
+id = "google-api-key"
+description = "Google API key"
+regex = '\bAIza[0-9A-Za-z_-]{35}\b'
+keywords = ["aiza"]
+severity = "high"
+[rules.provider]
+name = "Google Cloud"
+revokeUrl = "https://console.cloud.google.com/apis/credentials"
+
+[[rules]]
+id = "gcp-service-account"
+description = "Google service account JSON (embedded private key)"
+regex = '"type"\s*:\s*"service_account"'
+keywords = ["service_account"]
+severity = "critical"
+[rules.provider]
+name = "Google Cloud IAM"
+revokeUrl = "https://console.cloud.google.com/iam-admin/serviceaccounts"
+
+# ---------------------------------------------------------------------------
+# LLM providers
+# ---------------------------------------------------------------------------
+
+[[rules]]
+id = "anthropic-api-key"
+description = "Anthropic API key"
+regex = '\bsk-ant-(api|admin)?-?[A-Za-z0-9_-]{20,}\b'
+keywords = ["sk-ant"]
+severity = "high"
+[rules.provider]
+name = "Anthropic"
+revokeUrl = "https://console.anthropic.com/settings/keys"
+
+[[rules]]
+id = "openai-api-key"
+description = "OpenAI API key"
+regex = '\bsk-(proj-|svcacct-)?(?!ant-)(?![a-f0-9]{32}\b)[A-Za-z0-9_-]{20,}\b'
+keywords = ["sk-"]
+severity = "high"
+[rules.provider]
+name = "OpenAI"
+revokeUrl = "https://platform.openai.com/api-keys"
+
+[[rules]]
+id = "deepseek-api-key"
+description = "DeepSeek API key"
+regex = '\bsk-[a-f0-9]{32}\b'
+keywords = ["sk-"]
+severity = "high"
+[rules.provider]
+name = "DeepSeek"
+revokeUrl = "https://platform.deepseek.com/api_keys"
+
+# ---------------------------------------------------------------------------
+# Code hosting / packages
+# ---------------------------------------------------------------------------
+
+[[rules]]
+id = "github-token"
+description = "GitHub token (classic, fine-grained, OAuth, refresh)"
+regex = '\b(gh[pousr]_[A-Za-z0-9]{36,255}|github_pat_[A-Za-z0-9_]{22,})\b'
+keywords = ["ghp_", "gho_", "ghu_", "ghs_", "ghr_", "github_pat_"]
+severity = "high"
+[rules.provider]
+name = "GitHub"
+revokeUrl = "https://github.com/settings/tokens"
+
+[[rules]]
+id = "gitlab-token"
+description = "GitLab personal access token"
+regex = '\bglpat-[A-Za-z0-9_-]{20,}\b'
+keywords = ["glpat-"]
+severity = "high"
+[rules.provider]
+name = "GitLab"
+revokeUrl = "https://gitlab.com/-/user_settings/personal_access_tokens"
+
+[[rules]]
+id = "npm-token"
+description = "npm access token"
+regex = '\bnpm_[A-Za-z0-9]{36,255}\b'
+keywords = ["npm_"]
+severity = "high"
+[rules.provider]
+name = "npm"
+revokeUrl = "https://www.npmjs.com/settings/~/tokens"
+
+[[rules]]
+id = "pypi-token"
+description = "PyPI API token"
+regex = '\bpypi-AgEIcHlwaS5vcmc[A-Za-z0-9_-]{20,}\b'
+keywords = ["pypi-agei"]
+severity = "high"
+[rules.provider]
+name = "PyPI"
+revokeUrl = "https://pypi.org/manage/account/token/"
+
+# ---------------------------------------------------------------------------
+# SaaS
+# ---------------------------------------------------------------------------
+
+[[rules]]
+id = "slack-token"
+description = "Slack token"
+regex = '\bxox[baprs]-[A-Za-z0-9-]{10,}\b'
+keywords = ["xoxb-", "xoxa-", "xoxp-", "xoxr-", "xoxs-"]
+severity = "high"
+[rules.provider]
+name = "Slack"
+revokeUrl = "https://api.slack.com/authentication/rotating-and-invalidating-credentials"
+
+[[rules]]
+id = "stripe-secret-key"
+description = "Stripe live secret key"
+regex = '\b[sr]k_live_[A-Za-z0-9]{20,}\b'
+keywords = ["sk_live_", "rk_live_"]
+severity = "critical"
+[rules.provider]
+name = "Stripe"
+revokeUrl = "https://dashboard.stripe.com/apikeys"
+
+[[rules]]
+id = "sendgrid-token"
+description = "SendGrid API key"
+regex = '\bSG\.[A-Za-z0-9_-]{16,32}\.[A-Za-z0-9_-]{16,64}\b'
+keywords = ["sg."]
+severity = "high"
+[rules.provider]
+name = "SendGrid"
+revokeUrl = "https://app.sendgrid.com/settings/api_keys"
+
+[[rules]]
+id = "twilio-key"
+description = "Twilio API key"
+regex = '\bSK[0-9a-fA-F]{32}\b'
+keywords = ["sk"]
+minEntropy = 3.5
+severity = "high"
+[rules.provider]
+name = "Twilio"
+revokeUrl = "https://console.twilio.com/us1/develop/sid"
+
+# ---------------------------------------------------------------------------
+# Crypto / auth material
+# ---------------------------------------------------------------------------
+
+[[rules]]
+id = "pem-private-key"
+description = "Private key (PEM: RSA/EC/OpenSSH/PGP)"
+regex = '-----BEGIN (RSA |EC |DSA |OPENSSH |PGP |ENCRYPTED )?PRIVATE KEY( BLOCK)?-----'
+keywords = ["private key"]
+severity = "critical"
+[rules.provider]
+name = "SSH/PGP"
+revokeUrl = "https://github.com/agentleak/agentleak/wiki/Rotating-SSH-keys"
+
+[[rules]]
+id = "jwt"
+description = "JSON Web Token"
+regex = '\beyJ[A-Za-z0-9_-]{8,}\.[A-Za-z0-9_-]{8,}\.[A-Za-z0-9_-]{8,}\b'
+keywords = ["eyj"]
+severity = "medium"
+
+# ---------------------------------------------------------------------------
+# Generic fallbacks (entropy-gated to control false positives)
+# ---------------------------------------------------------------------------
+
+[[rules]]
+id = "generic-api-key-assignment"
+description = "Credential-looking assignment (entropy-gated)"
+regex = "(?i)\\b(api[_-]?key|apikey|secret|token|passwd|password|pwd)\\b[\"']?\\s*[:=]\\s*[\"'][A-Za-z0-9_\\-./+=]{16,}[\"']"
+keywords = ["key", "secret", "token", "password"]
+minEntropy = 3.5
+severity = "medium"
+
+[[rules]]
+id = "high-entropy-blob"
+description = "Long high-entropy string (review manually)"
+regex = '\b[A-Za-z0-9_-]{40,}\b'
+minEntropy = 4.7
+severity = "low"
