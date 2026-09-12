@@ -1,9 +1,16 @@
 {
   "name": "agentleak",
   "version": "0.1.0",
-  "description": "Find secrets you already leaked into AI agent chat sessions — offline, local-first, with a rotation checklist.",
+  "description": "Offline scanner that finds secrets (API keys, SSH keys, tokens) you already leaked into AI agent chat sessions, with a rotation checklist and new-leak baseline.",
   "type": "module",
   "license": "MIT",
+  "author": {
+    "name": "agentleak contributors"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/agentleak"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/agentleak/agentleak.git"
@@ -12,17 +19,27 @@
   "bugs": {
     "url": "https://github.com/agentleak/agentleak/issues"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
   "keywords": [
     "security",
     "secrets",
     "secret-scanning",
+    "secret-detection",
     "ai",
     "llm",
+    "ai-security",
+    "llm-security",
     "claude-code",
     "codex",
     "cursor",
+    "copilot",
+    "aider",
     "api-keys",
-    "dlp"
+    "dlp",
+    "cli"
   ],
   "engines": {
     "node": ">=20"
