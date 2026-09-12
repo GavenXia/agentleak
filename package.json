@@ -1,0 +1,84 @@
+{
+  "name": "agentleak",
+  "version": "0.1.0",
+  "description": "Find secrets you already leaked into AI agent chat sessions — offline, local-first, with a rotation checklist.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agentleak/agentleak.git"
+  },
+  "homepage": "https://github.com/agentleak/agentleak#readme",
+  "bugs": {
+    "url": "https://github.com/agentleak/agentleak/issues"
+  },
+  "keywords": [
+    "security",
+    "secrets",
+    "secret-scanning",
+    "ai",
+    "llm",
+    "claude-code",
+    "codex",
+    "cursor",
+    "api-keys",
+    "dlp"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "agentleak": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "rules",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/cli.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepare": "husky || true"
+  },
+  "lint-staged": {
+    "*.{ts,md,json,yml,toml}": [
+      "prettier --write"
+    ],
+    "*.ts": [
+      "eslint --fix"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "dependencies": {
+    "commander": "^14.0.0",
+    "fflate": "^0.8.2",
+    "picocolors": "^1.1.1",
+    "smol-toml": "^1.4.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@eslint/js": "^9.30.0",
+    "@types/node": "^24.0.0",
+    "eslint": "^9.30.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.35.0",
+    "vitest": "^3.2.4"
+  }
+}
