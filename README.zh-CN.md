@@ -38,15 +38,16 @@
 
 而单次粘贴的影响面还在持续扩大：
 
-| 事实                                                                                          | 来源                                                                                                                                 |
-| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| 一个被粘进**单次 ChatGPT 对话**的 Infura key，经 WildChat 采集后扩散到 **1,131 个公开数据集** | [Truffle Security：扫描 7.6 PB AI 训练数据](https://trufflesecurity.com/blog/scanning-7-6-petabytes-of-ai-training-data-for-secrets) |
-| 6,003 个公开 AI 数据集中发现 221,303 个**仍有效**的凭据                                       | 同上                                                                                                                                 |
-| 中国官方媒体与国家安全部公开警告：API 中转站泄漏并转卖用户对话                                | [新华社 / 国安部提示，2026](https://app.xinhuanet.com/news/article.html?articleId=20260608081c2c78593d4394b46b0cf31bec0a4f)          |
-| 对 400+ 中转站的学术实测：45% 偷换假模型、**17% 窃取测试凭据**、9 个注入恶意代码              | [中转站风险研究](https://getgptplus.app/blog/api-relay-risks)                                                                        |
-| 被盗 AI key 在黑产以 97.8% 折扣转卖（$3,333 额度卖 $0.13）                                    | [CSA 影子中转市场研究](https://labs.cloudsecurityalliance.org/research/csa-research-note-llm-api-relay-market-shadow-risk-20260729/) |
-| 公开暴露的 AI 凭据**几分钟内**即被利用                                                        | Lasso Security                                                                                                                       |
-| agent 厂商至今没有内置对已存对话的秘钥脱敏                                                    | [claude-code#29434](https://github.com/anthropics/claude-code/issues/29434)（仍为 open）                                             |
+| 事实                                                                                                                                                          | 来源                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| 一个被粘进**单次 ChatGPT 对话**的 Infura key，经 WildChat 采集后扩散到 **1,131 个公开数据集**                                                                 | [Truffle Security：扫描 7.6 PB AI 训练数据](https://trufflesecurity.com/blog/scanning-7-6-petabytes-of-ai-training-data-for-secrets) |
+| 6,003 个公开 AI 数据集中发现 221,303 个**仍有效**的凭据                                                                                                       | 同上                                                                                                                                 |
+| 安全研究员购买 **6TB 中转站调用日志**，内含 SSH 私钥、VPN 配置、阿里云 key、GitLab token——声称足以触及 19 家头部企业（华为、小米、蔚来等）与 7 家政府相关机构 | [Chaofan Shou (Fuzzland)，2026-09](https://x.com/shoucccc/status/2098169782541631871)（研究声称）                                    |
+| 中国官方媒体与国家安全部公开警告：API 中转站泄漏并转卖用户对话                                                                                                | [新华社 / 国安部提示，2026](https://app.xinhuanet.com/news/article.html?articleId=20260608081c2c78593d4394b46b0cf31bec0a4f)          |
+| 对 400+ 中转站的学术实测：45% 偷换假模型、**17% 窃取测试凭据**、9 个注入恶意代码                                                                              | [中转站风险研究](https://getgptplus.app/blog/api-relay-risks)                                                                        |
+| 被盗 AI key 在黑产以 97.8% 折扣转卖（$3,333 额度卖 $0.13）                                                                                                    | [CSA 影子中转市场研究](https://labs.cloudsecurityalliance.org/research/csa-research-note-llm-api-relay-market-shadow-risk-20260729/) |
+| 公开暴露的 AI 凭据**几分钟内**即被利用                                                                                                                        | Lasso Security                                                                                                                       |
+| agent 厂商至今没有内置对已存对话的秘钥脱敏                                                                                                                    | [claude-code#29434](https://github.com/anthropics/claude-code/issues/29434)（仍为 open）                                             |
 
 现有工具都不覆盖这个面：秘钥扫描器（gitleaks 等）只扫 git 仓库；企业 AI DLP
 只看网关流量。**没人盘点本地会话里已经躺着什么。** 这就是 agentleak 的全部职责。
